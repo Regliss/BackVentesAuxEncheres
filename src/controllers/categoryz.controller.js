@@ -60,7 +60,7 @@ exports.update = (req, res) => {
 };
 
 exports.removeOne = (req, res) => {
-	Category.findByIdAndRemove(req.params.id)
+	Category.findOneAndDelete(req.params.id)
 	.then((data) => {
 		// if (!data) {
 		// 	res.status(404).send({
