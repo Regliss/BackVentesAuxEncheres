@@ -49,7 +49,8 @@ exports.getProducts = (req, res) => {
           message: `Product with id ${req.params.id} not found`,
         });
       }
-      res.send(data);
+      res.send(Object.assign({},data));
+      // res.send(data);
     })
     .catch((err) => res.send(err));
 };
@@ -58,7 +59,7 @@ exports.update = (req, res) => {
     Product.findOneAndUpdate(
         { _id: req.params.id },
         {
-            title: req.body.title,
+        title: req.body.title,
     		price: req.body.price,
     		description: req.body.description,
     		image: req.body.image,
