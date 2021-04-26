@@ -49,8 +49,9 @@ exports.getProducts = (req, res) => {
           message: `Product with id ${req.params.id} not found`,
         });
       }
+      let records = {"records": data};
       // res.send(Object.assign({},data));
-      res.send(data);
+      res.send(records);
     })
     .catch((err) => res.send(err));
 };
