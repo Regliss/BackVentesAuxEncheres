@@ -8,4 +8,6 @@ router.get('/products/', product.getProducts);
 router.post('/products/edit/:id', product.update);
 router.get('/products/delete/:id', product.removeOne);
 
+router.get('/phone/products/', product.phoneGetProducts);
+
 module.exports = router;

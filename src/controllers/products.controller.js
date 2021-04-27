@@ -49,7 +49,26 @@ exports.getProducts = (req, res) => {
           message: `Product with id ${req.params.id} not found`,
         });
       }
-      let records = {"records": data};
+      res.send(data);
+    })
+    .catch((err) => res.send(err));
+};
+
+exports.phoneGetProducts = (req, res) => {
+  Product.find()
+  .populate('category')
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({
+          message: `Product with id ${req.params.id} not found`,
+        });
+      }
+      const recordsArray = []; 
+      data.forEach((product) => {
+        const fields = {"fields": product};
+        recordsArray.push(fields);
+      });
+      const records = {"records": recordsArray};
       // res.send(Object.assign({},data));
       res.send(records);
     })
