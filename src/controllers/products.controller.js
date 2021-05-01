@@ -29,6 +29,7 @@ exports.create = (req, res) => {
 
 exports.getProduct = (req, res) => {
   Product.findById(req.params.id)
+  .populate('category')
     .then((data) => {
       if (!data) {
         res.status(404).send({
