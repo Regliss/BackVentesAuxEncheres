@@ -19,11 +19,11 @@ const productSchema = new Schema({
 		required: true
 	},
 	dateStart: {
-		type: Date,
+		type: String,
 		required: true
 	},
 	dateEnd: {
-		type: Date,
+		type: String,
 		required: true
 	},
 	category: {

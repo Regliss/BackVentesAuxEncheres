@@ -1,7 +1,14 @@
 const Product = require('../models/product.model');
 const Category = require('../models/category.model');
+const moment = require('moment');
+//var todayDate = new Date(); 
+var dateStart = new Date(new Date().getTime() + (5 * 24 * 60 * 60 * 1000));
+var dateEnd = new Date(new Date().getTime() + (5 * 24 * 60 * 60 * 1000));
 
-exports.create = (req, res) => {
+exports.create = (req, res) => { 
+    var dateStart = moment(dateStart, 'DD-MM-YYYY').format('DD-MM-YYYY');
+    var dateEnd = moment(dateEnd, 'DD-MM-YYYY').format('DD-MM-YYYY');
+
   const product = new Product({
     title: req.body.title,
     price: req.body.price,
